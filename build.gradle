@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+
+group = 'org.gradle'
+version = '1.0-SNAPSHOT'
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('C:\\Users\\Nishan\\.m2\\repository'))
+        }
+    }
+}
