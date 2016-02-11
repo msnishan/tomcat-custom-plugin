@@ -1,3 +1,16 @@
+
+buildscript {
+    repositories {
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+    }
+    dependencies {
+      classpath "com.gradle.publish:plugin-publish-plugin:0.9.3"
+    }
+  }
+
+apply plugin: "com.gradle.plugin-publish"
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
@@ -8,9 +21,22 @@ dependencies {
 }
 
 
-group = 'org.gradle'
+group = 'com.nishan.custom'
 version = '1.0-SNAPSHOT'
 
+pluginBundle {
+    website = 'http://www.gradle.org/'
+    vcsUrl = 'https://github.com/gradle/gradle'
+    description = 'Greetings from here!'
+    tags = ['tomcat']
+  
+    plugins {
+      greetingsPlugin {
+        id = 'com.nishan.custom.tomcat'
+        displayName = 'Custom Tomcat Plugin'
+      }
+    }
+  }
 
 uploadArchives {
     repositories {
